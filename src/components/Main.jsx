@@ -138,7 +138,7 @@ function Main() {
       <section id="lifecycle">
         <div className="container">
           <div className="lifecycle wow fadeInLeft">
-            <h1>Project lifEcycle</h1>
+            <h1>{t('project_life_cycle')}</h1>
             <div className="lifecycle-img-container">
               <img src="images/LIFECYCLE.png" alt="img" />
             </div>
