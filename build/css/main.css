@@ -382,6 +382,12 @@ input:focus {
   cursor: pointer;
 }
 
+.se:hover ~ .sub-menu{
+  visibility: visible !important;
+  height: auto !important;
+  opacity: 1;
+}
+
 .lang::before {
   width: 1.5rem;
   height: 1.5rem;

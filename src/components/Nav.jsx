@@ -1,6 +1,13 @@
+import { changeLanguage } from 'i18next';
 import React from 'react'
+import { useTranslation } from 'react-i18next';
+import i18next from "i18next";
 
 function Nav() {
+
+    const { t } = useTranslation();
+
+    
   return (
   
          <nav className="navigation">
@@ -21,28 +28,28 @@ function Nav() {
 
                     <li>
                        
-                        <span className="se "> Services <i className="fas fa-chevron-down"></i></span>
+                        <span className="se"> {t('services')} <i className="fas fa-chevron-down"></i></span>
 
                         <ul className="sub-menu ">
                            
 
                             <a href="#web">
-                                <li>Web development</li>
+                                <li> {t('web')}</li>
                             </a>
 
                             <a href="#software">
-                                <li>Software Development</li>
+                                <li> {t('software')}</li>
                             </a>
 
                           
 
 
                             <a href="#branding">
-                                <li>Branding and Design</li>
+                                <li> {t('branding')}</li>
                             </a>
 
                             <a href="#social" >
-                                <li>Social Media Management</li>
+                                <li> {t('social')}</li>
                             </a>
 
 
@@ -51,23 +58,29 @@ function Nav() {
                     </li>
 
                     <li>
-                        <a href="#contact-form" className="t"> Start Building </a>
+                        <a href="#contact-form" className="t">  {t('start_building')} </a>
                     </li>
 
                     <li type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         
-                        <a href="#about">About us</a>
+                        <a href="#about"> {t('about_us')}</a>
                     </li>
 
                     <li>
                         <div className="li-lang">
-                            <span style={{color:"white"}} className="sp-lang">FR  <i className='fas fa-chevron-down'></i></span>
+                          {i18next.language === "en" ? "EN" : "FR"} <span style={{color:"white"}} className="sp-lang"> <i className='fas fa-chevron-down'></i></span>
                             <div className="lang">
                                 <ul>
-                                  <a href="index-fr.html" >
+                                  <a href="#fr" onClick={() => {
+                                      localStorage.setItem('locales', "fr");
+                                      changeLanguage("fr");
+                                  } }>
                                     <li>FR</li>
                                   </a>
-                                  <a href="index.html" >
+                                  <a href="#en" onClick={() =>{
+                                      localStorage.setItem('locales', "en");
+                                      changeLanguage("en");
+                                  } }>
                                     <li>EN</li>
                                   </a>
                                 </ul>

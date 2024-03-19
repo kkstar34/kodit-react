@@ -7,9 +7,12 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
 import { useEffect } from 'react';
+import i18next from "i18next";
+import { useTranslation } from 'react-i18next';
 
 function App() {
 
+  const { t } = useTranslation();
   useEffect(()=> {
       // Sélectionnez les éléments HTML à animer
       const sectionsWithParallax = document.querySelectorAll('.parallax');
@@ -31,24 +34,33 @@ function App() {
       window.addEventListener('scroll', updateParallax);
 
 
+  let projectId = '65ec6bd3175bb21b06b57dd9' 
 
-
-      
+  if(i18next.language === 'en'){
+    projectId = "65bf733665e7726cb37fb0d1"
+  }else{
+    projectId = "65ec6bd3175bb21b06b57dd9"
+  }
+  
+  console.log(projectId);
     (function(d, t) {
         var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
         v.onload = function() {
           window.voiceflow.chat.load({
-            verify: { projectID: '65bf733665e7726cb37fb0d1' },
+            verify: { projectID: projectId },
             url: 'https://general-runtime.voiceflow.com',
             versionID: 'production'
           });
         }
         v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
+  
+    
 
-  },[])
+  },[localStorage.getItem('locales')])
   return (
     <>
+    {console.log(t('web'))}
     <Nav/>
     <Header/>
     <Main/>

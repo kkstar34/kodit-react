@@ -1,10 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import Baffle from "baffle";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 function Header() {
   const textRef = useRef();
 
+  const { t } = useTranslation();
+
   useEffect(() => {
+    
+  
+    textRef.current.innerText = t('anticipate');
     const b = Baffle(textRef.current);
     // Configure Baffle with options if needed
     b.set({
@@ -18,7 +25,10 @@ function Header() {
     return () => {
       b.stop();
     };
-  }, []);
+  }, [i18next.language]);
+
+ 
+ 
 
   return (
     <>
@@ -33,8 +43,7 @@ function Header() {
             <div className="header-text">
               <div className="header-text__text wow fadeInLeft">
                 <h1 className="data" ref={textRef}>
-                  anticipate the technology of{" "}
-                  <div className="h1-pink">tomorrow</div> today
+                  {t('anticipate')}
                 </h1>
               </div>
             </div>
@@ -53,9 +62,7 @@ function Header() {
 
             <div>
               <p>
-                KODIT anticipates the digital landscape of tomorrow. Our passion
-                for the next generation of technologies inspire us to create a
-                futuristic digital future.
+               {t('header_description')}.
               </p>
             </div>
           </div>

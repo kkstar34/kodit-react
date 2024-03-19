@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+    const { t } = useTranslation();
   return (
 <footer className="footer container">
         <div className="container">
@@ -9,27 +11,27 @@ function Footer() {
                     <h5>Services</h5>
                     <ul className="footer-services">
                         <li>
-                            <a href="#social">Social Media Management</a>
+                            <a href="#social">{t('social')}</a>
                         </li>
                         <li>
-                            <a href="#web">Web Development</a>
+                            <a href="#web">{t('web')}</a>
                         </li>
                         <li>
-                            <a href="#software">Software Development</a>
+                            <a href="#software">{t('software')}</a>
                         </li>
                         <li>
-                            <a href="#branding">Branding & Design</a>
+                            <a href="#branding">{t('branding')}</a>
                         </li>
                     </ul>
                 </div>
                 <div className="col-md-6 col-lg-4 contact-us">
-                    <h5>Contact Us</h5>
+                    <h5>{t('contact_us')}</h5>
                     <p>Rue Paul Langevin, Abidjan, Côte d'Ivoire</p>
                     <p>Email: info@kodit.ai</p>
                     <p>Phone: +225 0700999990</p>
                 </div>
                 <div className="col-md-6 col-lg-4 follow-us">
-                    <h5>Follow Us</h5>
+                    <h5>{t('follow_us')}</h5>
                     <ul className="footer-social-icons">
                         <li>
                             <a href="#">
@@ -57,7 +59,8 @@ function Footer() {
             <div className="row copyright">
                 <div className="col">
                     <p className="text-center">
-                        © 2024 KODIT. All rights reserved.
+                        © 2024 KODIT. {t('all_rights')}
+                      
                     </p>
                 </div>
             </div>

@@ -1,0 +1,32 @@
+{
+    "services": "Services",
+    "web": "Developpement Web",
+    "software": "Developpement logiciel",
+    "branding" : "Branding & Design",
+    "social" : "Gestion des reseaux sociaux",
+    "start_building" : "Construisons",
+    "about_us" : "A Propos",
+    "anticipate" : "Anticiper la technologie de demain des aujourd'hui",
+    "header_description" : "KODIT anticipe le paysage numérique de demain. Notre passion pour les nouvelles technologies nous motive à créer un avenir numérique futuriste.",
+    "web_p1" : "Dans l'ère numérique actuelle, votre présence en ligne est cruciale. Kodit va au-delà du simple codage en créant des expériences web immersives qui différencient votre entreprise. Doté d'interfaces élégantes et de fonctionnalités impeccables, votre site devient l'incarnation de l'innovation.",
+    "web_p2" : "Dans un monde en constante évolution, Kodit vous aide à garder une longueur d'avance avec des solutions logicielles adaptées à vos besoins. Notre approche agile et nos algorithmes avancés stimulent la productivité et améliorent la rentabilité de votre entreprise.",
+    "soft_p1" : "Pour une présence dynamique sur les réseaux sociaux, Kodit transforme votre identité en ligne en une voix puissante pour votre marque. Grâce à un contenu captivant, nous vous aidons à exploiter pleinement le potentiel des médias sociaux pour stimuler votre croissance.",
+    "soft_p2" : "Repoussez les limites avec le logiciel Kodit. Notre mélange d'expertise garantit des applications sur mesure qui évoluent avec votre entreprise.",
+    "branding_p1" : "Dans un marché compétitif, se démarquer est essentiel. Kodit redéfinit votre identité de marque avec une fusion unique d'art et de technologie. De la conception de votre logo à l'emballage de vos produits, nous vous aidons à créer une image de marque qui laisse une impression durable.",
+    "branding_p2" : "Avec Kodit, façonnez une histoire de marque captivante qui résonne avec votre public, tout en simplifiant vos opérations avec des déploiements rapides.",
+    "social_p1" : "En communication digitale, une forte présence est essentielle. La gestion des réseaux sociaux de Kodit transforme votre identité en ligne. Grâce à un contenu engageant, Kodit élève la voix de votre marque, assurant une résonance. Les réseaux sociaux deviennent un catalyseur de croissance.",
+    "social_p2" : "Gardez une longueur d'avance avec la direction de Kodit. Nos connaissances génèrent des résultats tangibles, propulsant votre marque vers de nouveaux sommets.",
+    "first_name" : "Nom",
+    "last_name" : "Prenom",
+    "email_address" : "Adresse email",
+    "phone_number" : "Numéro de téléphone",
+    "select_a_service" : "Selectionner un service",
+    "message" : "Message",
+    "submit" : "Envoyer",
+    "contact_us" : "Contactez nous",
+    "follow_us" : "Suivez nous",
+    "other" : "Autre",
+    "all_rights" : "Tous droits réservés."
+
+
+}

@@ -25,8 +25,10 @@ $(document).ready(function () {
     let subMenu = document.querySelector('.sub-menu');
     let se = document.querySelector('.se')
 
+    let submenuA = document.querySelectorAll('.sub-menu a');
+
     se.addEventListener('click',()=>{
-        console.log('menu')
+      
         subMenu.classList.toggle('active');
         if(subMenu.classList.contains('active')){
             se.innerHTML = "Services <i class='fas fa-chevron-up'></i>"
@@ -35,8 +37,16 @@ $(document).ready(function () {
         }
        
     })
+
+    submenuA.forEach(ser => {
+        ser.addEventListener('click',()=>{
+            subMenu.classList.remove('active');
+        })
+    })
+
     let sp = document.querySelector('.sp-lang');
     let lg = document.querySelector('.lang')
+    let spa = document.querySelectorAll('.li-lang a');
 
     const burgerMenu = document.getElementById('menu--enter');
     const menuList = document.getElementById('menu');
@@ -46,9 +56,9 @@ $(document).ready(function () {
 
     window.addEventListener('click' , (event)=> {
         const isClickInside = burgerMenu.contains(event.target) || menuList.contains(event.target) ||  event.target.classList.contains('fa-chevron-down') || event.target.classList.contains('fa-chevron-up') ;
-        console.log( li.contains(event.target))
+       
         if (!isClickInside) {
-            console.log("ahi")
+            
             $(".menu").css({
                 right:"-100%"
             })
@@ -59,15 +69,26 @@ $(document).ready(function () {
         
     })
 
+    let lang = localStorage.getItem('locales') === 'en' ? 'EN' : 'FR';
+
  
     sp.addEventListener('click',()=>{
-        console.log('menu')
+        
         lg.classList.toggle('active');
         if(lg.classList.contains('active')){
-            sp.innerHTML = "FR  <i class='fas fa-chevron-up'></i>"
+            sp.innerHTML = ` <i class='fas fa-chevron-up'></i>`
         }else{
-            sp.innerHTML = "FR  <i class='fas fa-chevron-down'></i>"
+            sp.innerHTML = `  <i class='fas fa-chevron-down'></i>`
         }
+    })
+
+
+    spa.forEach(s => {
+        s.addEventListener('click',()=>{
+            lg.classList.remove('active');
+         
+            
+        })
     })
     
 });
