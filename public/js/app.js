@@ -41,6 +41,11 @@ $(document).ready(function () {
     submenuA.forEach(ser => {
         ser.addEventListener('click',()=>{
             subMenu.classList.remove('active');
+            if(subMenu.classList.contains('active')){
+                se.innerHTML = "Services <i class='fas fa-chevron-up'></i>"
+            }else{
+                se.innerHTML = "Services <i class='fas fa-chevron-down'></i>"
+            }
         })
     })
 
@@ -88,7 +93,11 @@ $(document).ready(function () {
         s.addEventListener('click',()=>{
             lg.classList.remove('active');
          
-            
+            if(lg.classList.contains('active')){
+                sp.innerHTML = ` <i class='fas fa-chevron-up'></i>`
+            }else{
+                sp.innerHTML = `  <i class='fas fa-chevron-down'></i>`
+            }
         })
     })
     

@@ -10,18 +10,23 @@ function Footer() {
                 <div className="col-md-6 col-lg-4">
                     <h5>Services</h5>
                     <ul className="footer-services">
-                        <li>
-                            <a href="#social">{t('social')}</a>
-                        </li>
+
                         <li>
                             <a href="#web">{t('web')}</a>
                         </li>
+
                         <li>
                             <a href="#software">{t('software')}</a>
                         </li>
+                        
                         <li>
                             <a href="#branding">{t('branding')}</a>
                         </li>
+
+                        <li>
+                            <a href="#social">{t('social')}</a>
+                        </li>
+                       
                     </ul>
                 </div>
                 <div className="col-md-6 col-lg-4 contact-us">
