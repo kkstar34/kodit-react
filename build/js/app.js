@@ -45,6 +45,7 @@ $(document).ready(function () {
     })
 
     let sp = document.querySelector('.sp-lang');
+    let sreal = document.querySelector('.sreal');
     let lg = document.querySelector('.lang')
     let spa = document.querySelectorAll('.li-lang a');
 
@@ -72,7 +73,7 @@ $(document).ready(function () {
     let lang = localStorage.getItem('locales') === 'en' ? 'EN' : 'FR';
 
  
-    sp.addEventListener('click',()=>{
+    sreal.addEventListener('click',()=>{
         
         lg.classList.toggle('active');
         if(lg.classList.contains('active')){

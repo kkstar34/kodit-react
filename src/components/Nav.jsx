@@ -68,7 +68,7 @@ function Nav() {
 
                     <li>
                         <div className="li-lang">
-                          {i18next.language === "en" ? "EN" : "FR"} <span style={{color:"white"}} className="sp-lang"> <i className='fas fa-chevron-down'></i></span>
+                          <span className="sreal">{i18next.language === "en" ? "EN" : "FR"}  <span style={{color:"white"}} className="sp-lang"> <i className='fas fa-chevron-down'></i></span></span> 
                             <div className="lang">
                                 <ul>
                                   <a href="#fr" onClick={() => {
