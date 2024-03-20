@@ -56,7 +56,7 @@ function Contact() {
   
 
     if (formulaireValide) {
-      const data = {
+      let data = {
         name,
         last_name,
         email,
@@ -178,7 +178,7 @@ function Contact() {
                   <option value="">{t("select_a_service")}</option>
                   <option value="social">{t("social")}</option>
                   <option value="web">{t("web")}</option>
-                  <option value="soft">{t("soft")}</option>
+                  <option value="soft">{t("software")}</option>
                   <option value="branding">{t("branding")}</option>
                   <option value="other">{t("other")}</option>
                 </select>
