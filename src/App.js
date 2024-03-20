@@ -9,6 +9,7 @@ import Modal from './components/Modal';
 import { useEffect } from 'react';
 import i18next from "i18next";
 import { useTranslation } from 'react-i18next';
+import SnackBarComponent from './components/SnackBarComponent';
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
     <Contact/>
     <Footer/>
     <Modal/>
+    <SnackBarComponent />
     </>)
 }
 
