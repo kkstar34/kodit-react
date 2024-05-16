@@ -61,6 +61,13 @@ function Nav() {
                         <a href="#contact-form" className="t">  {t('start_building')} </a>
                     </li>
 
+                    <li>
+    <button className='blog' onClick={() => window.open("https://medium.com/@0xkodit", "_blank")}>
+        Blog
+    </button>
+                   </li>
+
+
                     <li type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         
                         <a href="#about"> {t('about_us')}</a>
@@ -88,6 +95,8 @@ function Nav() {
                         </div>
                        
                     </li>
+
+
                 </ul>
             </div>
 
