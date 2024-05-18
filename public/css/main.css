@@ -805,6 +805,12 @@ label {
   border: 2px solid purple; /* Bordure violette */
 }
 
+.blog{
+  background-color: black;
+  color: white;
+  
+}
+
 /* Style du bouton de soumission */
 .btn-primary {
   background-color: purple; /* Couleur de fond violette */
