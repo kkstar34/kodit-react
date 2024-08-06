@@ -55,34 +55,40 @@ function Nav() {
                             <a href="/#about">{t('about_us')}</a>
                         </li>
                         <li>
-                            <div className="li-lang">
-                                <span className="sreal">
-                                    {i18next.language === "en" ? "EN" : "FR"}  
-                                    <span style={{ color: "white" }} className="sp-lang">
-                                        <i className='fas fa-chevron-down'></i>
-                                    </span>
-                                </span>
-                                <div className="lang">
-                                    <ul>
-                                        <li>
-                                            <button onClick={() => {
-                                                localStorage.setItem('locales', "fr");
-                                                changeLanguage("fr");
-                                            }}>
-                                                FR
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button onClick={() => {
-                                                localStorage.setItem('locales', "en");
-                                                changeLanguage("en");
-                                            }}>
-                                                EN
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div className="li-lang" style={{ backgroundColor: 'black', borderRadius: '5px', padding: '5px 10px' }}>
+    <span className="sreal" style={{ color: 'white' }}>
+        {i18next.language === "en" ? "EN" : "FR"}  
+        <span className="sp-lang" style={{ color: "white", marginLeft: '5px' }}>
+            <i className='fas fa-chevron-down'></i>
+        </span>
+    </span>
+    <div className="lang">
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <li>
+                <button 
+                    onClick={() => {
+                        localStorage.setItem('locales', "fr");
+                        changeLanguage("fr");
+                    }}
+                    style={{ color: 'white', backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}
+                >
+                    FR
+                </button>
+            </li>
+            <li>
+                <button 
+                    onClick={() => {
+                        localStorage.setItem('locales', "en");
+                        changeLanguage("en");
+                    }}
+                    style={{ color: 'white', backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}
+                >
+                    EN
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
                         </li>
                     </ul>
                 </div>

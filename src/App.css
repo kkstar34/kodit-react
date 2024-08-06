@@ -60,5 +60,23 @@
   display: block;
 }
 
+.overlay h2 {
+  color: white; /* Changed from blue to white, adjust as needed */
+  font-size: 20px; /* Reduced from previous size, adjust as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .overlay h2 {
+    font-size: 14px; /* Even smaller for mobile devices */
+  }
+}
 
 

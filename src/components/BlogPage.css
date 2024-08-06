@@ -1,3 +1,4 @@
+/* Base styles */
 .blog-page {
   font-family: Arial, sans-serif; /* Your existing font family */
   max-width: 1200px; /* Your existing max-width */
@@ -11,11 +12,7 @@
   margin-bottom: 20px; /* Your existing margin */
 }
 
-.center-line {
-  height: 2px; /* Your existing height */
-  background-color: #ccc; /* Your existing background color */
-  margin: 20px 0; /* Your existing margin */
-}
+
 
 .post-list {
   list-style: none;
@@ -29,17 +26,9 @@
 }
 
 .post-item {
-  width: calc(50% - 20px);
+  width: calc(33.33% - 20px); /* Three per row on desktop */
   margin-bottom: 40px;
   position: relative;
-}
-
-.post-item.right-align {
-  justify-self: flex-end;
-}
-
-.post-item.left-align {
-  justify-self: flex-start;
 }
 
 .post-thumbnail-container {
@@ -74,15 +63,28 @@
 }
 
 .post-title {
-  color: #fff;
-  font-size: 24px;
+  font-family: inherit; /* Inherit font from parent (.blog-page) */
+  font-size: 1.5rem; /* Adjust font size as needed */
   font-weight: bold;
   text-align: center;
   padding: 10px;
+  color: #fff; /* White color for text */
+}
+
+@media (max-width: 1024px) {
+  .post-item {
+    width: calc(50% - 10px); /* Two per row on tablet */
+  }
 }
 
 @media (max-width: 768px) {
   .post-item {
-    width: 100%;
+    width: calc(50% - 10px); /* Two per row on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .post-item {
+    width: 100%; /* Single column on very small screens */
   }
 }

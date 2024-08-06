@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { convert } from 'html-to-text';
-import './BlogPage.css'; // Import your CSS file for styling
+import './BlogPage.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerSelector, registerThunk } from '../redux/slices/registerSlice';
-import { openModal } from '../redux/slices/modalSlice';
+import { registerSelector } from '../redux/slices/registerSlice';
 
 const BlogPage = () => {
-  const { t } = useTranslation(); // Initialize useTranslation
-
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { loading } = useSelector(registerSelector);
-
   const [posts, setPosts] = useState([]);
 
-  // Mapping of post indices to image filenames
+  // Keep the imageMap in the original order
   const imageMap = {
-    
-    0: 'trilemne.jpeg',
-    1: 'image1.jpeg',
-    2: 'image2.jpeg',
-    3: 'image3.jpeg',
-    4: 'image4.jpg'
+    0: 'ants_pic.jpeg',
+    1: 'trilemne.jpeg',
+    2: 'image1.jpeg',
+    3: 'image2.jpeg',
+    4: 'image3.jpeg',
+    5: 'image4.jpg',
   };
 
   useEffect(() => {
@@ -34,6 +30,8 @@ const BlogPage = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        console.log('Fetched posts:', data.items);
+        // Do not reverse the order here
         setPosts(data.items);
       } catch (error) {
         console.error('Error fetching Medium posts:', error);
@@ -43,23 +41,6 @@ const BlogPage = () => {
     fetchPosts();
   }, []);
 
-  const sanitizeDescription = (htmlString) => {
-    let text = convert(htmlString, {
-      wordwrap: 250, // Adjusted to 250 characters as requested
-      selectors: [
-        { selector: 'img', format: 'skip' } // Skip images
-      ]
-    });
-
-    // Find the first occurrence of a capital letter followed by a lowercase letter
-    const match = text.match(/[A-Z][a-z]/);
-    if (match) {
-      text = text.slice(match.index);
-    }
-
-    return text;
-  };
-
   const truncateString = (str, num) => {
     if (str.length <= num) {
       return str;
@@ -67,32 +48,32 @@ const BlogPage = () => {
     return str.slice(0, num) + '...';
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic if needed
-  };
-
   return (
     <div className="blog-page">
       <h2 className="page-title">{t('our_latest_insights')}</h2>
       <div className="center-line"></div>
       <ul className="post-list">
-        {posts.map((post, index) => (
-          <li key={post.guid} className={`post-item ${index % 2 === 0 ? 'left-align' : 'right-align'}`}>
-            <a href={post.link} target="_blank" rel="noopener noreferrer">
-              <div className={`post-thumbnail-container ${index % 2 === 0 ? 'left-side' : 'right-side'}`}>
-                <img
-                  className="post-thumbnail"
-                  src={`/images/blogpics/${imageMap[index]}`}
-                  alt="Post Thumbnail"
-                />
-                <div className="overlay">
-                  <span className="post-title">{post.title}</span>
+        {posts.map((post, index) => {
+          // Use the index directly to get the correct image
+          const imageFile = imageMap[index] || 'default-image.jpg';
+
+          return (
+            <li key={post.guid} className={`post-item ${index % 2 === 0 ? 'left-align' : 'right-align'}`}>
+              <a href={post.link} target="_blank" rel="noopener noreferrer">
+                <div className={`post-thumbnail-container ${index % 2 === 0 ? 'left-side' : 'right-side'}`}>
+                  <img
+                    className="post-thumbnail"
+                    src={`/images/blogpics/${imageFile}`}
+                    alt="Post Thumbnail"
+                  />
+                  <div className="overlay">
+                    <span className="post-title">{truncateString(post.title, 50)}</span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          </li>
-        ))}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
