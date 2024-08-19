@@ -11,6 +11,8 @@ import BlogPage from './components/BlogPage';
 import { useTranslation } from 'react-i18next';
 import i18next from "i18next";
 import SnackBarComponent from './components/SnackBarComponent';
+import NotFound from './components/NotFound'; 
+
 
 function App() {
   const { t } = useTranslation();
@@ -43,7 +45,7 @@ function App() {
       v.type = "text/javascript";
       s.parentNode.insertBefore(v, s);
     })(document, 'script');
-  }, [localStorage.getItem('locales')]);
+  }, [i18next.language]);  // Updated dependency
 
   return (
     <Router>
@@ -51,6 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout><Header /><Main /><Contact /><Footer /><Modal /><SnackBarComponent /></Layout>} />
           <Route path="/blog" element={<Layout><BlogPage /></Layout>} />
+          <Route path="*" element={<NotFound />} />  {/* Optional 404 handling */}
         </Routes>
       </div>
     </Router>

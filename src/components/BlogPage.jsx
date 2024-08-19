@@ -1,38 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './BlogPage.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { registerSelector } from '../redux/slices/registerSlice';
 
 const BlogPage = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const { loading } = useSelector(registerSelector);
   const [posts, setPosts] = useState([]);
 
-  // Keep the imageMap in the original order
-  const imageMap = {
-    0: 'ants_pic.jpeg',
-    1: 'trilemne.jpeg',
-    2: 'image1.jpeg',
-    3: 'image2.jpeg',
-    4: 'image3.jpeg',
-    5: 'image4.jpg',
+  const imageMap = [
+    'nostr.jpeg',
+    'ants_pic.jpeg',
+    'trilemne.jpeg',
+    'image1.jpeg',
+    'image2.jpeg',
+    'image3.jpeg',
+    'image4.jpg',
+  ];
+
+  // Hardcoded latest article
+  const latestArticle = {
+    title: 'NOSTR : Simple "Truc" de plus ou Revolution des Réseaux Sociaux ?',
+    pubDate: '2024-08-14 11:59:28',
+    link: 'https://medium.com/@0xkodit/nostr-simple-truc-de-plus-ou-r%C3%A9volution-des-r%C3%A9seaux-sociaux-de13cdfe22fc',
+    guid: 'https://medium.com/p/de13cdfe22fc',
+    author: 'Kodit',
   };
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@0xkodit`
+          'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@0xkodit'
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
         console.log('Fetched posts:', data.items);
-        // Do not reverse the order here
-        setPosts(data.items);
+        
+        // Add the latest article to the beginning of the array
+        const allPosts = [latestArticle, ...data.items.filter(item => item.guid !== latestArticle.guid)];
+        
+        // Sort posts by date, most recent first
+        const sortedPosts = allPosts.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+        setPosts(sortedPosts);
       } catch (error) {
         console.error('Error fetching Medium posts:', error);
       }
@@ -54,8 +64,7 @@ const BlogPage = () => {
       <div className="center-line"></div>
       <ul className="post-list">
         {posts.map((post, index) => {
-          // Use the index directly to get the correct image
-          const imageFile = imageMap[index] || 'default-image.jpg';
+          const imageFile = index < imageMap.length ? imageMap[index] : 'default-image.jpg';
 
           return (
             <li key={post.guid} className={`post-item ${index % 2 === 0 ? 'left-align' : 'right-align'}`}>
